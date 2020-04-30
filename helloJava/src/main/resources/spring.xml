@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 使用spring实例化bean的方法1：通过构造实例化bean -->
+    <!--<bean id="audi" class="springDemo.car.Audi"/>-->
+
+    <!-- 使用spring实例化bean的方法2：通过静态方法实例化bean -->
+    <bean class="springDemo.car.CarFactory" factory-method="getBuick" id="buick"/>
+
+    <!-- 使用spring实例化bean的方法3：通过实例方法实例化bean -->
+    <bean class="springDemo.car.CarFactory" id="carFactory"/>
+    <bean class="springDemo.car.Audi" factory-bean="carFactory" factory-method="getAudi" id="audi"/>
+
+</beans>
